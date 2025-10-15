@@ -1,0 +1,46 @@
+{
+	"name": "shorty",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "tsx watch src/entry.ts",
+		"build": "tsc",
+		"formate": "biome format --write",
+		"lint": "biome lint --write",
+		"check": "biome check --write",
+		"db:gen": "drizzle-kit generate",
+		"db:mig": "drizzle-kit migrate",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,json}": [
+			"biome check --write"
+		]
+	},
+	"author": "Md Faizan",
+	"license": "MIT",
+	"packageManager": "pnpm@10.11.0",
+	"engines": {
+		"node": ">=20"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.6",
+		"@types/body-parser": "^1.19.6",
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.7.2",
+		"dotenv": "^17.2.3",
+		"drizzle-kit": "^0.31.5",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.4",
+		"tsx": "^4.20.6",
+		"typescript": "^5.9.3"
+	},
+	"dependencies": {
+		"body-parser": "^2.2.0",
+		"drizzle-orm": "^0.44.6",
+		"express": "^5.1.0",
+		"picocolors": "^1.1.1",
+		"postgres": "^3.4.7",
+		"zod": "^4.1.12"
+	}
+}

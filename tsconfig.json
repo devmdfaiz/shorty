@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "nodenext",
+		"skipLibCheck": true,
+		"allowJs": false,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"types": ["node"],
+		"strict": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"exclude": ["node_modules", "dist", "drizzle.config.ts"]
+}
