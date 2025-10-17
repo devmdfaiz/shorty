@@ -6,6 +6,7 @@ import type { UrlUseCaseRepo } from "../../repo/url.uc.repo.js";
 
 export class UrlUseCase implements UrlUseCaseRepo {
 	constructor(private databaseUrlRepo: DatabaseUrlRepo) {}
+
 	async create(originalUrl: string): Promise<string> {
 		const shortUrlId = IdFactory.randomUrlString();
 		const host = env.URL_HOST;
@@ -33,6 +34,13 @@ export class UrlUseCase implements UrlUseCaseRepo {
 		const shortedId = shortedUrl.split("/").filter(Boolean).at(-1);
 
 		if (!shortedId) {
+			console.error("Invalid shorted url: ", shortedUrl);
+			throw new BadRequestError();
+		}
+
+		const test = /^[A-Za-z0-9_-]+$/.test(shortedId);
+
+		if (!test) {
 			console.error("Invalid shorted url: ", shortedUrl);
 			throw new BadRequestError();
 		}

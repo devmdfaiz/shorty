@@ -15,6 +15,9 @@ export class AppError extends Error {
 export class DatabaseQueryError extends AppError {
 	constructor(message = "Database query error") {
 		super(message, 500);
+
+		Object.setPrototypeOf(this, new.target.prototype);
+		Error.captureStackTrace(this);
 	}
 }
 

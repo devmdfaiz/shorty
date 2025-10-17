@@ -5,12 +5,16 @@
 		"skipLibCheck": true,
 		"allowJs": false,
 		"outDir": "./dist",
-		"rootDir": "./src",
+		// "rootDir": "./src",
+		"rootDir": ".",
 		"types": ["node"],
 		"strict": true,
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@tests/*": ["./tests/*"]
 		}
 	},
-	"exclude": ["node_modules", "dist", "drizzle.config.ts"]
+	// "include": ["./src/**/*.ts", "./test/**/*.ts"],
+	"include": ["./src/**/*.ts", "./tests/**/*.ts"],
+	"exclude": ["node_modules", "dist", "drizzle.config.ts", "vite.config.ts"]
 }
